@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  KBNavgationDemo
+//
+//  Created by KentonYu on 16/3/6.
+//  Copyright © 2016年 KentonYu. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "KBNavgation.h"
+
+#endif /* PrefixHeader_pch */

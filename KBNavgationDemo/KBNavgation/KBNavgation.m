@@ -19,7 +19,7 @@ static KBNavgation *instance   = nil;
 
 @implementation KBNavgation
 
-+ (NSString *)KBNavgationUrlStrWithContent:(NSString *)content protocol:(KBNavgationUrlProtocol)protocol {
++ (NSString *)kbNavgationUrlStrWithContent:(NSString *)content protocol:(KBNavgationUrlProtocol)protocol {
     NSString *procolStr;
     switch (protocol) {
         case KBNavgationUrlProtocolInApp:
@@ -47,7 +47,7 @@ static KBNavgation *instance   = nil;
     return instance;
 }
 
-- (void)KBNavgationJumpToUrlStr:(NSString *)urlStr fromVC:(UIViewController *)fromVC withUserInfo:(NSDictionary *)userInfo {
+- (void)kbNavgationJumpToUrlStr:(NSString *)urlStr fromVC:(UIViewController *)fromVC withUserInfo:(NSDictionary *)userInfo {
     if (!fromVC.navigationController) {
         NSLog(@"%@ 无导航控制器",fromVC);
         return;

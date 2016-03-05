@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, KBNavgationUrlProtocol) {
  *
  *  @return 返回生成的路径    //example app://Home/HomeViewController
  */
-+ (NSString *)KBNavgationUrlStrWithContent:(NSString *)content protocol:(KBNavgationUrlProtocol)protocol;
++ (NSString *)kbNavgationUrlStrWithContent:(NSString *)content protocol:(KBNavgationUrlProtocol)protocol;
 
 /**
  *  单例
@@ -41,6 +41,6 @@ typedef NS_ENUM(NSUInteger, KBNavgationUrlProtocol) {
  *  @param fromVC   跳转所在的控制器
  *  @param userInfo 传递的信息
  */
-- (void)KBNavgationJumpToUrlStr:(NSString *)urlStr fromVC:(UIViewController *)fromVC withUserInfo:(NSDictionary *)userInfo;
+- (void)kbNavgationJumpToUrlStr:(NSString *)urlStr fromVC:(UIViewController *)fromVC withUserInfo:(NSDictionary *)userInfo;
 
 @end

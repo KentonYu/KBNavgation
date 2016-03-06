@@ -10,12 +10,18 @@
 #import "NSObject+KBNavgationProperty.h"
 #import "NSObject+KBNavgationDicToObject.h"
 
-//example app://Home/HomeViewController
+//example app://SecondViewController
 static NSString *const KBNavgationProtocolInApp = @"app://";
 static NSString *const KBNavgationProtocolHTTP  = @"http://";
 static NSString *const KBNavgationProtocolHTTPS = @"https://";
 
-static KBNavgation *instance   = nil;
+static KBNavgation *instance = nil;
+
+@interface KBNavgation ()
+
+@property (nonatomic, strong) Class webVCCla;
+
+@end
 
 @implementation KBNavgation
 
@@ -45,6 +51,10 @@ static KBNavgation *instance   = nil;
         }
     });
     return instance;
+}
+
+- (void)setCustomWebVCCla:(Class)webVCCla {
+    _webVCCla = webVCCla;
 }
 
 - (void)kbNavgationJumpToUrlStr:(NSString *)urlStr fromVC:(UIViewController *)fromVC withUserInfo:(NSDictionary *)userInfo {
@@ -77,11 +87,11 @@ static KBNavgation *instance   = nil;
                 break;
             }
             case KBNavgationUrlProtocolHTTP: {
-                [self p_openSafari:urlStr];
+                [self p_openSafari:urlStr fromVC:fromVC];
                 break;
             }
             case KBNavgationUrlProtocolHTTPS: {
-                [self p_openSafari:urlStr];
+                [self p_openSafari:urlStr fromVC:fromVC];
                 break;
             }
         }
@@ -104,7 +114,13 @@ static KBNavgation *instance   = nil;
     return NSNotFound;
 }
 
-- (void)p_openSafari:(NSString *)urlStr {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:urlStr]];
+- (void)p_openSafari:(NSString *)urlStr fromVC:(UIViewController *)fromVC {
+    if (_webVCCla) {
+        id webVC = [[_webVCCla alloc] init];
+        [fromVC.navigationController pushViewController:webVC animated:YES];
+    } else {
+      [[UIApplication sharedApplication]openURL:[NSURL URLWithString:urlStr]];
+    }
+   
 }
 @end

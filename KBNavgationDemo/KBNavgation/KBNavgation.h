@@ -35,6 +35,13 @@ typedef NS_ENUM(NSUInteger, KBNavgationUrlProtocol) {
 + (instancetype)shareInstance;
 
 /**
+ *  设置自定义web控制器，显示Web页面，默认是跳转Safari
+ *  全局设置
+ *  @param webVC web控制器
+ */
+- (void)setCustomWebVCCla:(Class)webVCCla;
+
+/**
  *  跳转相应UrlStr
  *
  *  @param urlStr   路径

@@ -10,6 +10,7 @@
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 #import "SecondViewController.h"
+#import "TestModel.h"
 
 static NSString *const kTableViewIdentity = @"TableViewCellIdentity";
 
@@ -42,7 +43,8 @@ static NSString *const kTableViewIdentity = @"TableViewCellIdentity";
         tableView;
     });
     [self.view addSubview:self.tableView];
-    
+    NSLog(@"arrayA %@",_arrayA);
+    NSLog(@"testModel - name:%@ age:%ld", _testModel.name, (long)_testModel.age);
 //    NSLog(@"\n intA=%d, \n integerA=%ld, \n floatA=%f, \n numberA=%@, \n boolA=%d, \n stringA=%@ \n", _intA, (long)_integerA, _floatA, _numberA, _boolA, _stringA);
     if (self.blockA) self.blockA();
     

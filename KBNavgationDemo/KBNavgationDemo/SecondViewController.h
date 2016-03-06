@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TestModel;
 
 @interface SecondViewController : UIViewController
 
@@ -16,6 +17,8 @@
 @property (nonatomic, strong) NSNumber  *numberA;
 @property (nonatomic, assign) BOOL      boolA;
 @property (nonatomic, copy  ) NSString  *stringA;
+@property (nonatomic, strong) NSArray    *arrayA;
 @property (nonatomic, copy  ) void(^blockA)(void);
+@property (nonatomic, strong) TestModel *testModel;
 
 @end

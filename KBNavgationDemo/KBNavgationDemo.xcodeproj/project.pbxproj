@@ -21,6 +21,7 @@
 		6B060E231C8B3C2F008FE719 /* NSObject+KBNavgationDicToObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B060E1D1C8B3C2F008FE719 /* NSObject+KBNavgationDicToObject.m */; };
 		6B060E241C8B3C2F008FE719 /* NSObject+KBNavgationProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B060E1F1C8B3C2F008FE719 /* NSObject+KBNavgationProperty.m */; };
 		6B060E281C8C0A70008FE719 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B060E271C8C0A70008FE719 /* SecondViewController.m */; };
+		6B060E2B1C8C4BCE008FE719 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B060E2A1C8C4BCE008FE719 /* TestModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		6B060E251C8B3C58008FE719 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		6B060E261C8C0A70008FE719 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		6B060E271C8C0A70008FE719 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		6B060E291C8C4BCE008FE719 /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
+		6B060E2A1C8C4BCE008FE719 /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 			children = (
 				6B060DE51C8B3C10008FE719 /* AppDelegate.h */,
 				6B060DE61C8B3C10008FE719 /* AppDelegate.m */,
+				6B060E291C8C4BCE008FE719 /* TestModel.h */,
+				6B060E2A1C8C4BCE008FE719 /* TestModel.m */,
 				6B060DE81C8B3C10008FE719 /* ViewController.h */,
 				6B060DE91C8B3C10008FE719 /* ViewController.m */,
 				6B060E261C8C0A70008FE719 /* SecondViewController.h */,
@@ -313,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B060E281C8C0A70008FE719 /* SecondViewController.m in Sources */,
+				6B060E2B1C8C4BCE008FE719 /* TestModel.m in Sources */,
 				6B060E201C8B3C2F008FE719 /* KBNavgation.m in Sources */,
 				6B060E221C8B3C2F008FE719 /* KBNavgationPropertyType.m in Sources */,
 				6B060E231C8B3C2F008FE719 /* NSObject+KBNavgationDicToObject.m in Sources */,

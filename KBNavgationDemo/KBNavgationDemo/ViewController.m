@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TestModel.h"
 
 @interface ViewController ()
 
@@ -42,6 +43,10 @@
     void(^block)(void) = ^{
         NSLog(@"demoBlock");
     };
+    TestModel *model = [[TestModel alloc] init];
+    model.name = @"testModelName";
+    model.age  = 22;
+    
     NSDictionary *userInfo = @{
                                @"intA" : @1,
                                @"integerA" : @2,
@@ -49,7 +54,9 @@
                                @"numberA"  : @4,
                                @"boolA"    : @(YES),
                                @"stringA"  : @(2222),
-                               @"blockA"   : block
+                               @"blockA"   : block,
+                               @"arrayA"   : @[@1,@2,@3],
+                               @"testModel": model
                                };
     [[KBNavgation shareInstance] kbNavgationJumpToUrlStr:[KBNavgation kbNavgationUrlStrWithContent:@"SecondViewController" protocol:KBNavgationUrlProtocolInApp] fromVC:self withUserInfo:userInfo];
 }

@@ -16,7 +16,6 @@ typedef NS_ENUM(NSUInteger, KBNavgationUrlProtocol) {
 };
 
 @interface KBNavgation : NSObject
-
 /**
  *  生成对应协议的路径
  *

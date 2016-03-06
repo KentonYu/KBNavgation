@@ -43,8 +43,8 @@ static NSString *const kTableViewIdentity = @"TableViewCellIdentity";
     });
     [self.view addSubview:self.tableView];
     
-    NSLog(@"\n intA=%d, \n integerA=%ld, \n floatA=%f, \n numberA=%@, \n boolA=%d, \n stringA=%@ \n", _intA, (long)_integerA, _floatA, _numberA, _boolA, _stringA);
-//    if (self.blockA) self.blockA();
+//    NSLog(@"\n intA=%d, \n integerA=%ld, \n floatA=%f, \n numberA=%@, \n boolA=%d, \n stringA=%@ \n", _intA, (long)_integerA, _floatA, _numberA, _boolA, _stringA);
+    if (self.blockA) self.blockA();
     
 }
 

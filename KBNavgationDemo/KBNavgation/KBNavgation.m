@@ -82,16 +82,15 @@ static KBNavgation *instance = nil;
                 } else {
                    vcInstance = [[cla alloc] init];
                 }
-                
                 [fromVC.navigationController pushViewController:vcInstance animated:YES];
                 break;
             }
             case KBNavgationUrlProtocolHTTP: {
-                [self p_openSafari:urlStr fromVC:fromVC];
+                [self p_openSafari:urlStr fromVC:fromVC userInfo:userInfo];
                 break;
             }
             case KBNavgationUrlProtocolHTTPS: {
-                [self p_openSafari:urlStr fromVC:fromVC];
+                [self p_openSafari:urlStr fromVC:fromVC userInfo:userInfo];
                 break;
             }
         }
@@ -114,9 +113,14 @@ static KBNavgation *instance = nil;
     return NSNotFound;
 }
 
-- (void)p_openSafari:(NSString *)urlStr fromVC:(UIViewController *)fromVC {
+- (void)p_openSafari:(NSString *)urlStr fromVC:(UIViewController *)fromVC userInfo:(NSDictionary *)userInfo {
     if (_webVCCla) {
-        id webVC = [[_webVCCla alloc] init];
+        id webVC = nil;
+        if (userInfo) {
+           webVC = [_webVCCla objectWithDic:userInfo];
+        } else {
+           webVC = [[_webVCCla alloc] init];
+        }
         [fromVC.navigationController pushViewController:webVC animated:YES];
     } else {
       [[UIApplication sharedApplication]openURL:[NSURL URLWithString:urlStr]];

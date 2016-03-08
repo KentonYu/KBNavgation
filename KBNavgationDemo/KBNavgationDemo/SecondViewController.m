@@ -18,6 +18,7 @@ static NSString *const kTableViewIdentity = @"TableViewCellIdentity";
     NSArray *dataList;
 }
 
+@property (nonatomic, strong) UIButton *backButton;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -35,6 +36,11 @@ static NSString *const kTableViewIdentity = @"TableViewCellIdentity";
     
     [self p_initData];
     
+    NSLog(@"arrayA %@",_arrayA);
+    NSLog(@"testModel - name:%@ age:%ld", _testModel.name, (long)_testModel.age);
+    //    NSLog(@"\n intA=%d, \n integerA=%ld, \n floatA=%f, \n numberA=%@, \n boolA=%d, \n stringA=%@ \n", _intA, (long)_integerA, _floatA, _numberA, _boolA, _stringA);
+    if (self.blockA) self.blockA();
+    
     self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, SCREEN_HEIGHT)];
         tableView.dataSource = self;
@@ -43,10 +49,15 @@ static NSString *const kTableViewIdentity = @"TableViewCellIdentity";
         tableView;
     });
     [self.view addSubview:self.tableView];
-    NSLog(@"arrayA %@",_arrayA);
-    NSLog(@"testModel - name:%@ age:%ld", _testModel.name, (long)_testModel.age);
-//    NSLog(@"\n intA=%d, \n integerA=%ld, \n floatA=%f, \n numberA=%@, \n boolA=%d, \n stringA=%@ \n", _intA, (long)_integerA, _floatA, _numberA, _boolA, _stringA);
-    if (self.blockA) self.blockA();
+
+    self.backButton = ({
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake( (SCREEN_WIDTH-100)/2.0f, SCREEN_HEIGHT-50.0f-50.0f, 100.0f, 50.0f)];
+        button.backgroundColor = [UIColor redColor];
+        [button setTitle:@"Back" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+        button;
+    });
+    [self.view addSubview:self.backButton];
     
 }
 
@@ -79,6 +90,13 @@ static NSString *const kTableViewIdentity = @"TableViewCellIdentity";
                  ];
 }
 
+- (void)back:(id)sender {
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
 
 #pragma mark UITabelView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

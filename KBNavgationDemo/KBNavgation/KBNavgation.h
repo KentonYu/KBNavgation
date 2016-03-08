@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef void(^KBNavgationCompleteBlock)(void);
+
 typedef NS_ENUM(NSUInteger, KBNavgationUrlProtocol) {
     KBNavgationUrlProtocolInApp = 0,
     KBNavgationUrlProtocolHTTP  = 1,
@@ -41,12 +43,41 @@ typedef NS_ENUM(NSUInteger, KBNavgationUrlProtocol) {
 - (void)setCustomWebVCCla:(Class)webVCCla;
 
 /**
- *  跳转相应UrlStr
+ *  跳转相应UrlStr（Push）
  *
  *  @param urlStr   路径
  *  @param fromVC   跳转所在的控制器
  *  @param userInfo 传递的信息
  */
-- (void)kbNavgationJumpToUrlStr:(NSString *)urlStr fromVC:(UIViewController *)fromVC withUserInfo:(NSDictionary *)userInfo;
+- (void)kbNavgationPushToUrlStr:(NSString *)urlStr fromVC:(UIViewController *)fromVC withUserInfo:(NSDictionary *)userInfo;
+
+/**
+ *  跳转相应UrlStr (Push）
+ *
+ *  @param urlStr        路径
+ *  @param fromVC        跳转所在的控制器
+ *  @param userInfo      传递的信息
+ *  @param completeBlock 跳转完成回调block
+ */
+- (void)kbNavgationPushToUrlStr:(NSString *)urlStr fromVC:(UIViewController *)fromVC withUserInfo:(NSDictionary *)userInfo complete:(KBNavgationCompleteBlock)completeBlock;
+
+/**
+ *  跳转相应的UrlStr (Present)
+ *
+ *  @param urlStr   路径
+ *  @param fromVC   跳转所在的控制器
+ *  @param userInfo 传递的信息
+ */
+- (void)kbNavgationPresentToUrlStr:(NSString *)urlStr fromVC:(UIViewController *)fromVC withUserInfo:(NSDictionary *)userInfo;
+
+/**
+ *  跳转相应的UrlStr (Present)
+ *
+ *  @param urlStr   路径
+ *  @param fromVC   跳转所在的控制器
+ *  @param userInfo 传递的信息
+ *  @param complete 跳转完成回调block
+ */
+- (void)kbNavgationPresentToUrlStr:(NSString *)urlStr fromVC:(UIViewController *)fromVC withUserInfo:(NSDictionary *)userInfo complete:(KBNavgationCompleteBlock)completeBlock;
 
 @end

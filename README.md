@@ -23,18 +23,45 @@ KBNavgation *instance = [KBNavgation shareInstance];
 [instance setCustomWebVCCla:WebViewController];
 </code></pre>
 
-* 实例方法，跳转控制器方法,userInfo是传到下个控制器的参数，参数名与目标控制器属性一致
+* 实例方法，Push控制器方法,userInfo是传到下个控制器的参数，参数名与目标控制器属性一致
 
 <pre><code>
 NSDictionary *userInfo = @{
                              @"title" : @"value"
                              };
-[instance kbNavgationJumpToUrlStr:urlStr fromVC:self withUserInfo:userInfo];
+[instance kbNavgationPushToUrlStr:urlStr fromVC:self withUserInfo:userInfo];
+</pre></code>
+
+* 实例方法，Push控制器方法,userInfo是传到下个控制器的参数，参数名与目标控制器属性一致,complete是跳转完成后执行的Block
+
+<pre><code>
+NSDictionary *userInfo = @{
+                             @"title" : @"value"
+                             };
+[instance kbNavgationPushToUrlStr:urlStr fromVC:self withUserInfo:userInfo complete:nil];
+</pre></code>
+
+* 实例方法，Present控制器方法,userInfo是传到下个控制器的参数，参数名与目标控制器属性一致
+
+<pre><code>
+NSDictionary *userInfo = @{
+                             @"title" : @"value"
+                             };
+[instance kbNavgationPresentToUrlStr:urlStr fromVC:self withUserInfo:userInfo];
+</pre></code>
+
+* 实例方法，Present控制器方法,userInfo是传到下个控制器的参数，参数名与目标控制器属性一致,complete是跳转完成后执行的Block
+
+<pre><code>
+NSDictionary *userInfo = @{
+                             @"title" : @"value"
+                             };
+[instance kbNavgationPresentToUrlStr:urlStr fromVC:self withUserInfo:userInfo complete:nil];
 </pre></code>
 
 #Histroy
 V0.1.0 init KBNavgation
 
-#Remarks
+#Note
 1. 字典映射部分参考MJExtension；
 2. iOS初学者，欢迎大家提出意见和建议；
